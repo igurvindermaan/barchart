@@ -1,14 +1,19 @@
 const switches = document.querySelectorAll('.switch');
 const bars = document.querySelectorAll('.bar');
 const years = document.querySelectorAll('.year');
+const chartMoney = document.querySelectorAll('.chart-money');
+let click = false;
 
 // base amount
-const benefit = 20400;
-const target = 1700;
-const signOn = 10000;
-const equity = 77500;
-const base = 100000;
 
+const baseAmounts = {
+    benefits: 20400,
+    target: 1700,
+    signOn: 10000,
+    equity: 77500,
+    base: 100000
+
+}
 
 
 
@@ -16,14 +21,16 @@ const base = 100000;
 switches.forEach((el) => {
     el.addEventListener('click', () => {
         el.classList.toggle('switch-off');
+        const value = `${el.dataset.category}`;
         bars.forEach(bar => {
             if(bar.dataset.category == el.dataset.category){
                 bar.classList.toggle('bar-hide')
             }         
         });
+        moneyDeduct(baseAmounts[`${value}`]);
+        addMoney(baseAmounts[`${value}`]);
     })
 })
-
 
 
 
@@ -44,13 +51,12 @@ years.forEach(el => {
         return  percentage * 500   / 100;
     }
 
-    const baseHeight =   heightCalc(base);
-    const equityHeight = heightCalc(equity)
-    const signonHeight = heightCalc(signOn);
-    const targetHeight = heightCalc(target);
-    const benefitHeight = heightCalc(benefit);
-  
-    console.log(typeof heightCalc(base));
+    const baseHeight =   heightCalc(baseAmounts.base);
+    const equityHeight = heightCalc(baseAmounts.equity)
+    const signonHeight = heightCalc(baseAmounts.signOn);
+    const targetHeight = heightCalc(baseAmounts.target);
+    const benefitHeight = heightCalc(baseAmounts.benefits);
+
     yearBase.style.height = `${baseHeight}px`;
     yearEquity.style.height = `${equityHeight}px`;
     yearSignOn.style.height = `${signonHeight}px`;
@@ -64,4 +70,33 @@ years.forEach(el => {
 
 })
 
+// deduct amount on toggle off
 
+function moneyDeduct (value){
+    let chartMoneyNumber;
+
+    chartMoney.forEach(el => {
+      chartMoneyNumber = Number(el.innerHTML.slice(1).split(',').join(''));
+      if(!click){
+        const updatedMoney =  `$${chartMoneyNumber - value}`;
+        el.innerHTML = updatedMoney;
+
+    }
+    });
+    click = click; 
+}
+
+// add amount on toggle on
+function addMoney(value){
+    let chartMoneyNumber;
+    chartMoney.forEach(el => {
+      chartMoneyNumber = Number(el.innerHTML.slice(1).split(',').join(''));
+      
+      if(click){
+        const updatedMoney =  `$${chartMoneyNumber + value}`;
+        el.innerHTML = updatedMoney;
+    }
+    });
+    click = !click; 
+
+}
