@@ -1,4 +1,4 @@
-const swithces = document.querySelectorAll('.switch');
+const switches = document.querySelectorAll('.switch');
 const bars = document.querySelectorAll('.bar');
 const years = document.querySelectorAll('.year');
 
@@ -13,7 +13,7 @@ const base = 100000;
 
 
 // click toggle
-swithces.forEach((el) => {
+switches.forEach((el) => {
     el.addEventListener('click', () => {
         el.classList.toggle('switch-off');
         bars.forEach(bar => {
@@ -38,7 +38,7 @@ years.forEach(el => {
     const yearBenefit = el.querySelector('.benefits');
     let percentage;
 
-    // height claculator
+    // height calculator
     function heightCalc(employBenefit){
         percentage = employBenefit / yearMoney * 100;
         return  percentage * 500   / 100;
@@ -57,7 +57,7 @@ years.forEach(el => {
     yearTarget.style.height = `${targetHeight}px`;
     yearBenefit.style.height = `${benefitHeight}px`;
 
-    
+
     if(el.id =='year-2'  || el.id =='year-3' || el.id =='year-4'){
         yearSignOn.style.height = 0;
     }
