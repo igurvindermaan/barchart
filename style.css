@@ -1,0 +1,146 @@
+*{
+    box-sizing: border-box;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #000000d9;
+    padding-top: 100px;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 890px;
+    padding: 20px;
+
+}
+.title-wrap{
+    text-align: center;
+}
+.title{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.perfomance-wrap{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.perfomance-left{
+    width: 30%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+.perfomance-right{
+    width: 60%;
+    display: flex;
+    align-items: flex-end;
+}
+.perfomance-title{
+    margin-bottom: 30px;
+}
+
+
+.switches-year{
+    font-size: 14px;
+    color: grey;
+    margin-top: 8px;
+}
+.switches-block{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.switch{
+    width: 55px;
+    height: 32px;
+    border: 1px solid #ccc;
+    background-color: #efefef;
+    border-radius: 34px;
+    position: relative;
+}
+.switch-circle{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    top: 3px;
+    right: 3px;
+    position: absolute;
+    transition: 0.3s all ease;
+}
+.benefits-switch .switch-circle{
+    background-color: rgb(149, 111, 250);
+    
+}
+.target-switch .switch-circle{
+    background-color: rgb(78, 132, 158);
+      
+}
+.sign-on-switch .switch-circle{
+    background-color: rgb(107, 189, 212);
+
+}
+.equity-switch .switch-circle{
+    background-color: rgb(241, 166, 40);
+
+}
+.base-salary-switch .switch-circle{
+    background-color: rgb(13, 143, 116);
+
+}
+.chart-wrap{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 25%;
+    padding: 0px 10px;
+    height: 600px;
+}
+.chart-bar-wrap{
+    width: 100%;
+    margin: 20px 0px;
+    /* height: 500px; */
+border-radius: 10px;
+overflow: hidden;
+display: flex;
+flex-flow: column;
+justify-content: flex-end;
+
+
+}
+.benefits{
+    background-color: rgb(149, 111, 250);
+}
+.target{
+    background-color: rgb(78, 132, 158);
+
+}
+.sign-on{
+    background-color: rgb(107, 189, 212);
+
+}
+.equity{
+    background-color: rgb(241, 166, 40);
+}
+.base-salary{
+    background-color: rgb(13, 143, 116);
+
+}
+
+.bar{
+    transition: 0.3s all ease;
+}
+
+.switch-off .switch-circle{
+    left: 4px;
+}
+.bar-hide{
+    height: 0 !important;
+}
